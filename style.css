@@ -1,0 +1,990 @@
+@font-face {
+    font-family: poppins-Light;
+    src: url(./Poppins/Poppins-Light.ttf);
+}
+
+
+:root{
+    --primary-color: #4464ad;
+    --secondary-color: #040926;
+    --queen-color: #466995;
+    --gray-color: #6e6362;
+    --dark-color: #4b4237;
+    --white-color: #ffffff;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: poppins-Light;
+}
+    
+
+nav{
+    background-color: var(--queen-color);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav a{
+    text-decoration: none;
+    color: var(--white-color);
+    display: block;
+    padding: 10px;
+}
+
+nav a:hover{
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.show-menu-bar,
+.hide-menu-bar{
+    transition: 0.5s;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.show-menu-bar{
+    margin: 15px;
+    float: right;
+}
+
+#toggle-btn{
+    position: absolute;
+    visibility: hidden;
+    z-index: -1111;
+}
+
+/* responsiveness for my navbar */
+
+@media screen and (max-width: 800px) {
+    nav{
+        background-color: transparent;
+    } 
+
+    .show-menu-bar,
+    .hide-menu-bar {
+        display: block;
+        color: var(--dark-color);
+
+        position: fixed;
+        top: 0px;
+        right: 20px;
+        margin: 0px; 
+    }
+
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: var(--queen-color);
+        top: -100%;
+        left: 0;
+        padding: 20px 0px;
+        transition: 1s;
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+
+    ul li{
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    ul li a{
+        padding: 5px;
+        text-align: center;
+    }
+
+    .hide-menu-bar{
+        position: absolute;
+        top: 0px;
+        right: 50%;
+        color: var(--dark-color);
+    }
+
+    #toggle-btn:checked ~ nav ul{
+        top: 0px;
+    }
+}
+
+/* styling about me with a bg image */
+.bg-image-me{
+    background: url("bg-image.webp");
+    background-repeat: repeat;
+}
+
+/* my name and what i do */
+.my-name{
+    padding-top: 80px;
+    text-align: center;
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.my-name h1{
+    font-size: 35px;
+    margin-top: 40px;
+}
+
+.my-name small{
+    font-size: 11px;
+    display: none;
+}
+
+.my-name p{
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+/* my social links not footer */
+.social-links{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.social-links a i{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    color: var(--secondary-color);
+}
+
+.social-links a i:hover{
+    color: var(--primary-color);
+}
+
+/* about me section */
+
+.about-me-h2{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+.about-me-section{
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-me-image{
+    margin-right: 20px;
+}
+
+.about-me-image img{
+    width: 300px;
+    height: auto;
+    border-radius: 30%;
+}
+
+.about-me-text{
+    margin-left: 20px;
+}
+
+.about-me-text p{
+    font-size: 20px;
+    color: var(--dark-color);
+}
+
+/* about me links */
+.about-me-links{
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    padding-top: 30px;
+}
+
+.about-me-links a{
+    outline: none;
+    border: 4px solid var(--dark-color);
+    text-decoration: none;
+    border-radius: 10px;
+
+    background-color: transparent;
+    color: var(--dark-color);
+    padding: 10px;
+}
+
+.link-1:hover{
+    background-color: var(--queen-color);
+    color: var(--white-color);
+    border: none;
+}
+
+.link-2:hover{
+    background-color: var(--queen-color);
+    color: var(--white-color);
+    border: none;
+}
+
+/* my skills section */
+.my-skills{
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 100px;
+}
+
+.my-skills h2{
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.skills-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+/* my html skills */
+
+.nothing{
+    width: 100%;
+    background-color: var(--dark-color);
+    border-radius: 20px;
+}
+
+.html-p{
+    background-image: linear-gradient(to right, var(--primary-color), var(--queen-color), var(--queen-color), var(--secondary-color), var(--secondary-color));
+
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white-color);
+    width: 90%;
+}
+
+.css-p{
+    background-image: linear-gradient(to right, var(--primary-color), var(--queen-color), var(--queen-color), var(--secondary-color), var(--secondary-color));
+
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white-color);
+    width: 90%;
+}
+
+.wireframe-p{
+    background-image: linear-gradient(to right, var(--primary-color), var(--queen-color), var(--queen-color), var(--secondary-color), var(--secondary-color));
+
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white-color);
+    width: 85%;
+}
+
+.git-p{
+    background-image: linear-gradient(to right, var(--primary-color), var(--queen-color), var(--queen-color), var(--secondary-color), var(--secondary-color));
+
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white-color);
+    width: 50%;
+}
+
+.project-p{
+    background-image: linear-gradient(to right, var(--primary-color), var(--queen-color), var(--queen-color), var(--secondary-color), var(--secondary-color));
+
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white-color);
+    width: 80%;
+}
+
+.js-p{
+    background-image: linear-gradient(to right, var(--primary-color), var(--queen-color), var(--queen-color), var(--secondary-color), var(--secondary-color));
+
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white-color);
+    width: 25%;
+}
+
+.football-p{
+    background-image: linear-gradient(to right, var(--primary-color), var(--queen-color), var(--queen-color), var(--secondary-color), var(--secondary-color));
+
+    border-radius: 20px;
+    text-align: center;
+    color: var(--white-color);
+    width: 90%;
+}
+
+/* my works section */
+.my-works-section{
+    width: 85%;
+    margin: 0px auto;
+    margin-top: 60px;
+}
+
+.my-works-section h2{
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.work{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+
+    background-color: var(--dark-color);
+}
+
+.img{
+    width: 50%;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+.img img{
+    width: 100%;
+}
+
+/* my github link to check out my works */
+.github-work{
+    text-align: center;
+    margin: 35px;
+}
+
+.github-work a{
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+
+    background-color: var(--queen-color);
+    color: var(--white-color);
+    border-radius: 25px;
+}
+
+.github-work a:hover{
+    background-color: var(--secondary-color);
+}
+
+/* my works and experience section */
+.my-journey-section{
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 70px;
+}
+
+.my-journey-section h2{
+    width: 100%;
+    margin: 0px auto;
+    text-align: center;
+    border-radius: 20px;
+    color: var(--primary-color);
+    border: none;
+}
+
+.my-experience{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.teach-places{
+    width: 40%;
+}
+
+.teach-places h3{
+    font-size: 25px;
+    color: var(--secondary-color);
+}
+
+.teach-places p{
+    color: var(--dark-color);
+}
+
+.teach-places a{
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    padding: 12px;
+    background-color: var(--queen-color);
+    color: var(--white-color);
+}
+
+.learning-journey{
+    width: 50%;
+}
+
+/* my learning from html to javascript */
+.exp h4{
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+.exp h4 small{
+    font-size: 12px;
+    color: var(--dark-color);
+}
+
+.exp p{
+    color: var(--dark-color);
+}
+
+/* how i made this portfolio section */
+.my-portfolio-section{
+    width: 85%;
+    margin: 0px auto;
+    margin-top: 30px;
+}
+
+.my-portfolio-section h2{
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.my-portfolio-section h3{
+    color: var(--secondary-color);
+}
+
+.my-portfolio-section p{
+    color: var(--dark-color);
+}
+
+.inspiration-links{
+    margin: 0px;
+    padding: 0px;
+}
+
+.inspiration-links a{
+    text-decoration: none;
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    margin: 100px;
+    padding: 5px 30px;
+    color: var(--dark-color);
+}
+
+.inspiration-links a:hover{
+    color: var(--white-color);
+    border: none;
+    background-color: var(--queen-color);
+}
+
+/* wireframne section */
+.wireframe-images{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wireframe-img-item img{
+    width: 80%;
+    height: 50vh;
+}
+
+/* contact me section the syling */
+.contact-me-section{
+    background-color: var(--queen-color);
+    margin-top: 50px;
+}
+
+.contact-me-section h2{
+    text-align: center;
+    color: var(--white-color);
+}
+
+.contact-me{
+    width: 75%;
+    margin: 0px auto
+}
+
+.contact-me p{
+    color: var(--white-color);
+}
+
+.contact-me i{
+    font-size: 40px;
+    color: var(--white-color);
+    padding: 15px;
+}
+
+/* my footer section */
+.footer-section{
+    background-color: var(--queen-color);
+    height: auto;
+}
+
+.footer-links{
+    text-align: center;
+    margin: 20px;
+}
+
+.footer-links a i{
+    font-size: 30px;
+    padding: 10px;
+    margin-top: 30px;
+    color: var(--white-color);
+}
+
+.footer-links a i:hover{
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+.footer-section p{
+    text-align: center;
+    font-size: 15px;
+}
+
+/* 
+==============================================
+this is my media query section responsivenes for all the screen sizes of the enitre pages
+==============================================
+ */
+
+ @media screen and (max-width: 550px) {
+/* styling about me with a bg image */
+.bg-image-me{
+    background-repeat: no-repeat;
+}
+
+/* my name and what i do */
+.my-name{
+    padding-top: 70px;
+}
+
+.my-name h1{
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+.my-name small{
+    font-size: 11px;
+    display: none;
+}
+
+.my-name p{
+    font-size: 15px;
+    margin-top: 50px;
+}
+
+/* my social links not footer */
+.social-links{
+    font-size: 25px;
+    margin-top: 50px;
+}
+
+.social-links a i{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    color: var(--secondary-color);
+}
+
+.social-links a i:hover{
+    color: var(--primary-color);
+}
+
+     
+/* about me section */
+
+.about-me-h2{
+    font-size: 25px;
+}
+
+.about-me-section{
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-me-image{
+    margin-right: 0px;
+    text-align: center;
+}
+
+.about-me-image img{
+    width: 280px;
+    height: auto;
+    border-radius: 20%;
+}
+
+.about-me-text{
+    margin-left: 0px;
+}
+
+.about-me-text p{
+    font-size: 15px;
+    text-align: justify;
+}
+
+/* about me links */
+.about-me-links{
+    font-size: 15px;
+    padding-top: 30px;
+}
+
+.about-me-links a{
+    outline: none;
+    border: none;
+    background-color: var(--queen-color);
+    color: var(--white-color);
+    border-radius: 5px;
+}
+
+
+/* my skills section */
+.my-skills{
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+.skills-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+}
+
+.my-skills h2{
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* my html skills */
+.skills p{
+    text-align: left;
+}
+
+
+/* my works section */
+.my-works-section{
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+.work{
+    flex-direction: column;
+}
+
+.img{
+    width: 85%;
+    padding: 10px;
+}
+
+
+/* my github link to check out my works */
+.github-work{
+    text-align: center;
+    margin: 35px;
+    padding: 0px;
+}
+
+.github-work a{
+    font-size: 10px;
+    border-radius: 20px;
+    padding: 0px;
+}
+
+
+/* my journey and experience section */
+.my-journey-section{
+    width: 90%;
+    margin-top: 50px;
+}
+
+.my-journey-section h2{
+    width: 100%;
+    text-align: center;
+    border-radius: 0px;
+    border: none;
+}
+
+.my-experience{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.teach-places{
+    width: 100%;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.teach-places h3{
+    font-size: 20px;
+}
+
+.teach-places a{
+    margin-bottom: 15px;
+}
+
+.learning-journey{
+    width: 100%;
+    text-align: justify;
+    margin-top: 15px;
+}
+
+/* my learning from html to javascript */
+.exp h4 small{
+    font-size: 10px;
+}
+
+
+/* how i made this portfolio section */
+.my-portfolio-section{
+    width: 90%;
+    margin-top: 50px;
+}
+
+.my-portfolio-section h2{
+    font-size: 20px;
+}
+
+.my-portfolio-section h3{
+    font-size: 15px;
+}
+
+.inspiration-links{
+    text-align: left;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.inspiration-links a{
+    border: none;
+    margin: 0px;
+    padding: 0px 15px;
+    background-color: var(--queen-color);
+    color: var(--white-color);
+}
+
+/* wireframne section */
+.wireframe-images{
+    display: none;
+    grid-template-columns: 1fr;
+}
+
+.wireframe-img-item img{
+    width: 100%;
+}
+
+
+/* contact me section the syling */
+.contact-me-section h2{
+    text-align: center;
+    color: var(--white-color);
+}
+
+.contact-me{
+    width: 80%;
+}
+
+.contact-me i{
+    font-size: 50px;
+}
+
+
+ }
+
+
+ /* my second media query */
+ @media screen  and (max-width: 800px) {
+     
+/* about me section */
+
+.about-me-section{
+    width: 90%;
+}
+
+.about-me-image{
+    margin-right: 0px;
+}
+
+.about-me-text p{
+    font-size: 18px;
+}
+
+/* about me links */
+.about-me-links{
+    font-size: 20px;
+    display: none;
+}
+
+.about-me-links a{
+    border: none;
+    background-color: var(--queen-color);
+    color: var(--white-color);
+}
+
+
+/* my skills section */
+.my-skills{
+    width: 80%;
+    margin-top: 50px;
+}
+
+.skills-wrapper{
+    grid-template-columns: 1fr;
+}
+
+
+/* my works section */
+.my-works-section{
+    width: 90%;
+}
+
+.work{
+    border-radius: 10px;
+}
+
+.img{
+    width: 70%;
+    height: auto;
+    padding: 10px;
+}
+
+/* my github link to check out my works */
+.github-work{
+    text-align: center;
+    margin: 25px;
+}
+
+.github-work a{
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+
+/* my works and experience section */
+.my-journey-section{
+    width: 90%;
+    font-size: 25px;
+}
+
+.my-journey-section h2{
+    width: 50%;
+    border-radius: 0px;
+    border: none;
+}
+
+.my-experience{
+    width: 100%;
+    margin-top: 50px;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.teach-places{
+    width: 100%;
+}
+
+.teach-places p{
+    color: var(--dark-color);
+}
+
+.teach-places a{
+    border-radius: 10px;
+}
+
+.learning-journey{
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+/* how i made this portfolio section */
+.my-portfolio-section{
+    width: 90%;
+    margin-top: 50px;
+}
+
+.my-portfolio-section p{
+    font-size: 18px;
+}
+
+.inspiration-links a{
+    border-radius: 8px;
+    border: none;
+    margin: 50px;
+    padding: 5px 35px;
+    color: var(--white-color);
+    background-color: var(--queen-color);
+}
+
+/* wireframne section */
+.wireframe-images{
+    display: none;
+}
+
+/* contact me section the syling */
+
+.contact-me-section h2{
+    text-align: center;
+    color: var(--white-color);
+}
+
+.contact-me{
+    width: 95%;
+    margin: 0px auto
+}
+
+.contact-me p{
+    color: var(--white-color);
+    font-size: 25px;
+}
+
+.contact-me i{
+    font-size: 40px;
+    color: var(--white-color);
+    padding: 15px;
+}
+
+
+ }
+
+ @media screen and (max-width: 1030px) {
+     
+/* wireframne section */
+.wireframe-images{
+    grid-template-columns: 1fr 1fr;
+}
+
+.wireframe-img-item img{
+    width: 80%;
+    height: 50vh;
+}
+
+ }
